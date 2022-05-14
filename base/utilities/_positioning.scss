@@ -1,0 +1,154 @@
+$hor: (
+    start: flex-start,
+    end: flex-end,
+    cen: center,
+    btw: space-between,
+    ard: space-around,
+    even: space-evenly,
+    str: stretch,
+);
+
+$ver: (
+    auto: auto,
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    baseline: baseline,
+    stretch: stretch,
+);
+// -----
+.row, .col {
+    display: flex;
+}
+
+.row {
+    flex-flow: row wrap;
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.col {
+    flex-flow: column nowrap;
+    &.reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+.nowrap {
+    flex-wrap: nowrap !important;
+}
+
+@each $var, $val in $hor {
+    .hor-#{$var} {
+        justify-content: $val;
+    }
+    .content-#{$var} {
+        align-content: $val;
+    }
+}
+
+@each $var, $val in $ver {
+    .ver-#{$var} {
+        align-items: $val;
+    }
+    .self-#{$var} {
+        align-self: $val;
+    }
+}
+
+@for $i from 0 through 3 {
+    .grow-#{$i} {
+        flex-grow: $i;
+    }
+    .shrink-#{$i} {
+        flex-shrink: $i;
+    }
+}
+
+@for $i from 0 through 10 {
+    .gap-#{$i} {
+        gap: $i * ($spacer * .25);
+    }
+    .row-gap-#{$i} {
+        row-gap: $i * ($spacer * .25);
+    }
+    .col-gap-#{$i} {
+        column-gap: $i * ($spacer * .25);
+    }
+}
+// -----s
+.pos {
+    &-abs {
+        position: absolute;
+    }
+    &-rel {
+        position: relative;
+    }
+    &-fix {
+        position: fixed;
+    }
+    &-stick {
+        position: sticky;
+        z-index: $zindex-fixed;
+        @include screen('xl') {
+            position: sticky;
+        }
+    }
+}
+// -----
+$scores: 0, 50, 100;
+@each $score in $scores {
+    .top-#{$score} {
+        top: percentage($score/100);
+        bottom: unset;
+    }
+    .start-#{$score} {
+        left: percentage($score/100);
+        right: unset;
+    }
+    .bottom-#{$score} {
+        bottom: percentage($score/100);
+        top: unset;
+    }
+    .end-#{$score} {
+        right: percentage($score/100);
+        left: unset;
+    }
+}
+// -----
+.center {
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    
+    &-top-start {
+        @extend .center, .top-0, .start-0;
+    }
+    &-top {
+        @extend .center, .top-0, .start-50;
+    }
+    &-top-end {
+        @extend .center, .top-0, .start-100;
+    }
+    
+    &-max-start {
+        @extend .center, .top-50, .start-0;
+    }
+    &-max {
+        @extend .center, .top-50, .start-50;
+    }
+    &-max-end {
+        @extend .center, .top-50, .start-100;
+    }
+
+    &-bottom-start {
+        @extend .center, .top-100, .start-0;
+    }
+    &-bottom {
+        @extend .center, .top-100, .start-50;
+    }
+    &-bottom-end {
+        @extend .center, .top-100, .start-100;
+    }
+}

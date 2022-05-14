@@ -1,0 +1,43 @@
+// Paddings & Margins
+@for $i from 0 through 10 {
+    .px-#{$i} {
+        padding-left: ($spacer * ($i * .25)) !important;
+        padding-right: ($spacer * ($i * .25)) !important;
+    }
+    .py-#{$i} {
+        padding-top: ($spacer * ($i * .25)) !important;
+        padding-bottom: ($spacer * ($i * .25)) !important;
+    }
+    .mx-#{$i} {
+        margin-left: ($spacer * ($i * .25)) !important;
+        margin-right: ($spacer * ($i * .25)) !important;
+    }
+    .my-#{$i} {
+        margin-top: ($spacer * ($i * .25)) !important;
+        margin-bottom: ($spacer * ($i * .25)) !important;
+    }
+}
+
+.mx-auto {
+    margin: 0 auto;
+}
+
+.ms-auto {
+    margin: 0 auto 0 0;
+}
+
+.me-auto {
+    margin: 0 0 0 auto;
+}
+
+.my-auto {
+    margin: auto 0;
+}
+
+.mt-auto {
+    margin: 0 0 auto 0;
+}
+
+.mb-auto {
+    margin: auto 0 0 0;
+}

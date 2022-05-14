@@ -1,0 +1,37 @@
+#modalbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+}
+.modal {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($_gray-100, .5);
+    backdrop-filter: blur(4px);
+    &-content {
+        position: absolute;
+        top: 10%;
+        @include screen ('md') {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        background-color: $_white;
+        padding: $spacer;
+        box-shadow: $_shadow-lg;
+        border-radius: $_rad;
+    }
+    &-close {
+        @extend .center-top-end;
+        background-color: $_danger;
+        padding: $spacer/3;
+        border-radius: $_rad;
+        cursor: pointer;
+        img {
+            position: relative;
+            top: -1px;
+        }
+    }
+}

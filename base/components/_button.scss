@@ -1,0 +1,131 @@
+.btn {
+    border: none;
+    background: none;
+    outline: none;
+    padding: $spacer/1.7 $spacer*1.4;
+    border: 1px solid transparent;
+    border-radius: $_rad;
+    transition: .3s ease-in-out;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    font-weight: $_body-font-weight;
+    font-size: $_body-font-size;
+    margin-bottom: $spacer;
+    box-shadow: $_shadow-sm;
+    &:hover {
+        transform: scale(1.02);
+        &:before {
+            left: 100%;
+        }
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(#ffffff, .2), transparent);
+        transition: .7s ease-in-out;
+    }
+    &.btn-s {
+        padding: $spacer/3 $spacer*1.1;
+    }
+    &.btn-full {
+        width: 100%;
+    }
+    &.activeAction, &.validAction {
+        position: relative;
+        background: $_white !important;
+        border: 1px solid $_white;
+        color: $_white;
+        img {
+            filter: brightness(0) invert(1)
+        }
+    }
+    .icon {
+        position: relative;
+        top: -2px;
+        height: 16px;
+        filter: invert(100%) sepia(0%) saturate(1845%) hue-rotate(152deg) brightness(113%) contrast(100%);
+        &-r {
+            @extend .icon;
+            margin-left: 4px;
+        }
+        &-l {
+            @extend .icon;
+            margin-right: 4px;
+        }
+    }
+    @each $var,$val in $colors {
+        &-#{$var}{
+            @extend .btn;
+            background-color: $val;
+            @if $var == 'light' {
+                color: $_gray-dark;
+            } @else {
+                color: $_white;
+            }
+        }
+        &-#{$var}-outline{
+            @extend .btn;
+            border: 1px solid $val;
+            @if $var == 'light' {
+                color: $_gray-dark;
+            } @else {
+                color: $val;
+            }
+            .icon {
+                filter: imgFilter(#{$var})
+            }
+        }
+        &-#{$var}-text{
+            @extend .btn;
+            border: 1px solid transparent;
+            background-color: $_white;
+            @if $var == 'light' {
+                color: $_gray-dark;
+            } @else {
+                color: $val;
+            }
+            .icon {
+                filter: imgFilter(#{$var})
+            }
+        }
+    }
+}
+
+.activeAction {
+    background: $_white !important;
+    @extend .shade;
+    cursor: not-allowed;
+    pointer-events: none;
+    &:after {
+        content: '';
+        display: inline-block;
+        background-image: url($loader);
+        background-size: $btn_loader_size;
+        width: $btn_loader_size; 
+        height: $btn_loader_size;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.validAction {
+    background: #ffffff !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    border: 1px solid rgba($_success, .5);
+    &:after {
+        content: url('https://img.icons8.com/fluency-systems-filled/20/28a745/checkmark.png');
+        display: inline-block;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

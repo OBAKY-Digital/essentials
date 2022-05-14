@@ -1,0 +1,20 @@
+.breadcrumb {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        color: $_gray-500;
+        &:not(:last-of-type) {
+            cursor: pointer;
+            &:hover {
+                color: $_gray-dark;
+            }
+            &::after { 
+                content: url("https://img.icons8.com/material-rounded/14/adb5bd/forward.png");
+                margin: 0 $spacer/2;
+            }
+        }
+    }
+}

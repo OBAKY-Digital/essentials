@@ -1,0 +1,49 @@
+// Radiuses
+.rad {
+    border-radius: $_rad;
+}
+// Events
+.no-event {
+    pointer-events: none;
+    user-select: none;
+}
+// Opacity
+@for $i from 0 through 10 {
+    .opa-#{$i} {
+        opacity: $i/10;
+    }
+}
+// Shadows & Borders
+.shade {
+    box-shadow: $_shadow;
+    &-sm {
+        box-shadow: $_shadow-sm;
+    }
+    &-lg {
+        box-shadow: $_shadow-lg;
+    }
+    &-inset {
+        box-shadow: $_shadow-inset;
+    }
+}
+.border {
+    border: 1px solid $_gray-300;
+}
+// Overflow
+.over {
+    overflow: hidden;
+    &-x {
+        overflow-x: hidden;
+    }
+    &-y {
+        overflow-y: hidden;
+    }
+}
+// Visibility
+.visible {
+    visibility: visible !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}

@@ -1,0 +1,29 @@
+.loader {
+    position: relative;
+    background-color: $_white;
+
+    &:before {
+        content: '';
+        background-color: $_white;
+        width: 100%; 
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9998;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        background-image: url($loader);
+        background-size: 200px;
+        width:200px; 
+        height:200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+}

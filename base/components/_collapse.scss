@@ -1,0 +1,39 @@
+.collapse {
+    margin-top: $spacer * 1.2;
+    padding: $spacer;
+    // border: 1px solid $_primary;
+    box-shadow: $_shadow-sm;
+    background-color: $_white;
+    &.active {
+        .collapse-title:after {
+            // transform: rotate(180deg);
+            content: url('https://img.icons8.com/material-rounded/16/343a40/minus.png');
+        }
+        .collapse-content {
+            // display: block;
+            visibility: visible;
+            opacity: 1;
+            margin-top: $spacer;
+            height: fit-content;
+        }
+    }
+    &-title {
+        cursor: pointer;
+        position: relative;
+        // font-weight: 500;
+        font-size: 1.1rem;
+        &:after {
+            content: url('https://img.icons8.com/material-rounded/16/343a40/plus-math--v1.png');
+            position: absolute;
+            right: $spacer;
+        }
+    }
+    &-content {
+        // display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: .0001px;
+        font-size: $_body-font-size * .9;
+        transition: .2s ease-out;
+    }
+}

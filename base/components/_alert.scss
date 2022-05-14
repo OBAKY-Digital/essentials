@@ -1,0 +1,82 @@
+#alertbox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: $zindex-popover;
+}
+.alert {
+  margin-bottom: $spacer * 1.2;
+  padding: $spacer;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 3px solid $_gray-dark;
+  border-radius: $_rad;
+  box-shadow: $_shadow;
+  position: relative;
+  left: 100vw;
+  @each $var, $val in $colors {
+    &-#{$var} {
+      @extend .alert;
+      background-color: lighten($val, 50%);
+      border-color: transparent;
+      border-left-color: $val;
+      color: $val;
+      img {
+        filter: imgFilter(#{$var});
+        position: relative;
+        top: 3px;
+      }
+    }
+    &-#{$var}-slim {
+      @extend .alert;
+      background-color: $_white;
+      border-color: $val;
+      color: $val;
+      img {
+        filter: imgFilter(#{$var});
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+}
+
+// Premise for a notification library with both CSS and JavaScript
+.notification {
+  margin-bottom: $spacer * 1.2;
+  border: 1px solid $_gray-200;
+  box-shadow: $_shadow;
+  background-color: $_white;
+  &-title {
+    padding: $spacer*.3 $spacer*.7;
+    font-weight: 600;
+    border-bottom: 1px solid $_gray-200;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-content {
+    padding: $spacer*.3 $spacer*.7;
+  }
+  &-close {
+    cursor: pointer;
+  }
+  &-link {
+    display: block;
+    margin: $spacer*.4 0 $spacer*.4 auto;
+    text-align: right;
+    width: fit-content
+  }
+  @each $var, $val in $colors {
+    &-#{$var}{
+      @extend .notification;
+      .notification-title {
+        background-color: $val;
+        color: $_white;
+      }
+    }
+  }
+}

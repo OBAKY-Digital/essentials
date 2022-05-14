@@ -1,0 +1,42 @@
+.dropdown {
+    position: relative;
+    &-toggle {
+        position: relative;
+        border: none;
+        outline: none;
+        font: inherit;
+        padding: $spacer/3 0;
+        background-color: transparent;
+        &:after {
+            content: url('https://img.icons8.com/material-rounded/24/343a40/expand-arrow--v1.png');
+            position: absolute;
+            right: -$spacer*1.5;
+            top: $spacer*.5;
+        }
+        &.active {
+            &-menu {
+                display: block;
+            }
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &-menu {
+        position: absolute;
+        background-color: $_white;
+        top: 100%;
+        list-style: none;
+        padding: 0;
+        box-shadow: $_shadow;
+        display: none;
+        z-index: $zindex-dropdown;
+    }
+    &-item {
+        display: block;
+        padding: $spacer/2 $spacer;
+        &:hover {
+            background-color: $_gray-100;
+        }
+    }
+}

@@ -1,0 +1,242 @@
+// Forms
+label {
+    font-size: .5em;
+    font-weight: 800;
+    text-transform: uppercase
+}
+input, select, textarea {
+    outline: none;
+    border: none;
+    font: inherit
+}
+
+// This must be moved to params and added to the web-application-starter folder for the 2nd version.
+
+
+.iselect {
+    position: relative;
+    select {
+        appearance: none;
+        background-color: $_form-background;
+        padding: $_form-padd;
+        margin: $_form-mar;
+        box-shadow: $_form-shades;
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: pointer;
+        line-height: inherit;
+        outline: none;
+        border: $_form-borders;
+        border-radius: 3px;
+        &::-ms-expand {
+            display: none;
+        }
+    }
+    &:after {
+        content: url('https://img.icons8.com/material-rounded/19/393d47/expand-arrow--v1.png');
+        position: absolute;
+        right: .8em;
+        top: .7rem;
+        pointer-events: none;
+    }
+}
+.textarea {
+    background-color: $_form-background;
+    padding: $_form-padd;
+    margin: $_form-mar;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    resize: none;
+    outline: none;
+    border-bottom: $_form-borders;
+    border-radius: 3px;
+    height: 150px;
+    @include scrollbars(5px, $_gray-500, transparent)
+}
+.iline {
+    margin: $_form-mar;
+    textarea, input {
+        border-radius: 3px;
+        border-bottom: $_form-borders;
+        box-shadow: $_form-shades;
+        background-color: $_form-background;
+        padding: $_form-padd;
+        width: 100%;
+        font-family: inherit;
+        font-size: $_body-font-size;
+        // height: fit-content;
+    }
+    &.nowrap {
+        flex-wrap: wrap !important;
+        @include screen('md') {
+            flex-wrap: nowrap !important;
+        }
+    }
+    &-trans {
+        @extend .iline;
+        textarea, input {
+            background-color: transparent;
+            color: #fff;
+            &::placeholder {
+                color: #fff;
+            }
+        }
+    }
+    .btn {
+        margin: 0;
+    }
+}
+.iradio {
+    position: relative;
+    input {
+        width: .0001px;
+        height: .0001px;
+        visibility: hidden;
+        position: absolute;
+        left: 100vw;
+        &:checked + label:before {
+            content: url('https://img.icons8.com/material-rounded/16/1e92f4/checked-radio-button.png')
+        }
+    }
+    label {
+        font-size: $_body-font-size !important;
+        margin: 10px 0;
+        display: block;
+        font-size: 1em;
+        font-weight: 300;
+        text-transform: unset;
+        position: relative;
+        padding-left: 1.5em;
+        &:before {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            content: url('https://img.icons8.com/material-rounded/16/C0C0C0/unchecked-radio-button.png')
+        }
+    }
+}
+.icheck {
+    padding: 4px 2px;
+    border-radius: 12px;
+    position: relative;
+    input {
+        width: .001px;
+        height: .001px;
+        position: absolute;
+        left: -100vw;
+    }
+    &.err label:before{
+        content: url('https://img.icons8.com/material-rounded/19/ed5249/indeterminate-checkbox--v1.png');
+    }
+    label {
+        display: inline-block;
+        cursor: pointer;
+        transition: .7s ease-in-out;
+        position: relative;
+        padding-left: 32px;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: none;
+        &:before {
+            content: url('https://img.icons8.com/material-rounded/19/d9d9d9/unchecked-checkbox.png');
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+    }
+    input[type=checkbox]:checked + label:before{
+        content: url('https://img.icons8.com/material-rounded/19/4bb543/checked-checkbox.png');
+    }
+    input[type=checkbox].unchecked + label:before{
+        content: url('https://img.icons8.com/material-rounded/19/ed5249/indeterminate-checkbox.png');
+    }
+}
+.itxt {
+    margin: $_form-mar;
+    textarea, input {
+        border-radius: 3px;
+        border: $_form-borders;
+        box-shadow: $_form-shades;
+        background-color: $_form-background;
+        padding: $_form-padd;
+        width: 100%;
+        font-family: inherit;
+        font-size: 1rem;
+        resize: none;
+    }
+    &.err {
+        position: relative;
+        &:after {
+            content: url('https://img.icons8.com/material-rounded/19/ed5249/cancel--v1.png');
+            position: absolute;
+            right: $spacer *.6;
+            top: $spacer *1.6;
+            pointer-events: none;
+        }
+        textarea, input {
+            border: $_danger 1px solid;
+        }
+        .msg {
+            color: $_danger;
+            font-size: .75em;
+        }
+    }
+}
+.itoggle {
+    label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 5px;
+        width: 48px;
+        margin: 0 6px;
+        border-radius: 12px;
+        background-color: $_gray-600;
+        transition: .7s ease-in-out;
+        .toggle {
+            height: 18px;
+            width: 18px;
+            background-color: $_white;
+            border-radius: 50%;
+            box-shadow: $_form-shades;
+        }
+    }
+    input {
+        width: .001px;
+        height: .001px;
+        position: absolute;
+        left: -100vw;
+    }
+    input[type=checkbox]:checked + label{
+        background-color: $_success;
+        color: $_white;
+        .toggle {
+            margin: 0 0 0 auto;
+        }
+    }
+}
+.iswitch {
+    background-color: $_white;
+    padding: 4px 2px;
+    border-radius: 6px;
+    margin: $_form-mar;
+    input {
+        width: .001px;
+        height: .001px;
+        position: absolute;
+        left: -100vw;
+    }
+    label {
+        display: inline-block;
+        cursor: pointer;
+        padding: 12px;
+        margin: 0 6px;
+        border-radius: 6px;
+    }
+    input[type=radio]:checked + label{
+        background-color: $_primary;
+        color: $_white;
+    }
+}

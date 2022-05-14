@@ -1,0 +1,139 @@
+// Width
+.wfit {
+    width: fit-content;
+}
+
+@for $i from 1 through 12 {
+    .w#{$i} {
+        @if $i/2 > 1 {
+            width: 100%;    
+        } @else {
+            width: percentage($i/2);
+        }
+        @include screen('sm') {
+            @if $i/3 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/3);
+            }
+        }
+        @include screen('md') {
+            @if $i/4 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/4);
+            }
+        }
+        @include screen('lg') {
+            @if $i/6 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/6);
+            }
+        }
+        @include screen('xl') {
+            @if $i/9 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/9);
+            }
+        }
+        @include screen('xxl') {
+            width: percentage($i/12);
+        }
+    }
+
+    .w#{$i}__min {
+        @if $i/3 > 1 {
+            width: 100%;
+        } @else {
+            width: percentage($i/3);
+        }
+        @include screen('sm') {
+            @if $i/4 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/4);
+            }
+        }
+        @include screen('md') {
+            @if $i/6 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/6);
+            }
+        }
+        @include screen('lg') {
+            @if $i/9 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/9);
+            }
+        }
+        @include screen('xl') {
+            width: percentage($i/12);
+        }
+    }
+
+    .w#{$i}__max {
+        width: 100%;    
+        @include screen('sm') {
+            @if $i/2 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/2);
+            }
+        }
+        @include screen('md') {
+            @if $i/3 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/3);
+            }
+        }
+        @include screen('lg') {
+            @if $i/4 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/4);
+            }
+        }
+        @include screen('xl') {
+            @if $i/6 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/6);
+            }
+        }
+        @include screen('xxl') {
+            @if $i/9 > 1 {
+                width: 100%;    
+            } @else {
+                width: percentage($i/9);
+            }
+        }
+    }
+}
+
+@for $i from 0 through 10 {
+    .he#{$i} {
+        height: $i * 10 + vh;
+    }
+    .mhe#{$i} {
+        min-height: $i * 10 + vh;
+    }
+}
+
+.hfull {
+    height: 100vh;
+    &-res {
+        @include screen('xl') {
+            height: 100vh;
+        }
+    }
+}
+
+// Aspect Ratios
+.square {
+    aspect-ratio: 1/1;
+}

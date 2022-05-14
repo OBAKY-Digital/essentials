@@ -1,0 +1,47 @@
+@each $var,$val in $colors {
+    .#{$var} { 
+        color: $val
+    }
+    .border-#{$var} { 
+        border-color: rgba($val, .12)
+    }
+    .bg-#{$var} { 
+        background-color: $val
+    }
+}
+
+.grad {
+    display: block;
+    width: fit-content;
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.grad {
+    display: inline-block !important;
+}
+
+.bg-grad {
+    background: $gradient
+}
+
+// Image change colors from 000000 to one of the represented with https://codepen.io/sosuke/pen/Pjoqqp
+@function imgFilter($color) {
+    $result: #393d47;
+    @if $color == 'danger' {
+        $result: $_danger-filter;
+    } @else if $color == 'warning' {
+        $result: $_warning-filter;
+    } @else if $color == 'info' {
+        $result: $_info-filter;
+    } @else if $color == 'success' {
+        $result: $_success-filter;
+    } @else if $color == 'primary' {
+        $result: $_primary-filter;
+    } @else if $color == 'secondary' {
+        $result: $_secondary-filter;
+    }
+    @return $result;
+}
