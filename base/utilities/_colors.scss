@@ -28,7 +28,7 @@
         background-color: $val
     }
     .filter-#{$var} {
-        filter: imgFilter($val)
+        filter: imgFilter(#{$var})
     }
 }
 
