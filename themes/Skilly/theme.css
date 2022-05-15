@@ -495,6 +495,11 @@ progress {
   background-color: #212529;
 }
 
+.filter-dark {
+  -webkit-filter: #393d47;
+          filter: #393d47;
+}
+
 .gray {
   color: #6c757d;
 }
@@ -505,6 +510,11 @@ progress {
 
 .bg-gray {
   background-color: #6c757d;
+}
+
+.filter-gray {
+  -webkit-filter: #393d47;
+          filter: #393d47;
 }
 
 .light {
@@ -519,6 +529,11 @@ progress {
   background-color: #f8f9fa;
 }
 
+.filter-light {
+  -webkit-filter: #393d47;
+          filter: #393d47;
+}
+
 .white {
   color: #fff;
 }
@@ -529,6 +544,11 @@ progress {
 
 .bg-white {
   background-color: #fff;
+}
+
+.filter-white {
+  -webkit-filter: #393d47;
+          filter: #393d47;
 }
 
 .primary {
@@ -543,6 +563,11 @@ progress {
   background-color: #31D488;
 }
 
+.filter-primary {
+  -webkit-filter: #393d47;
+          filter: #393d47;
+}
+
 .secondary {
   color: #1d915b;
 }
@@ -553,6 +578,11 @@ progress {
 
 .bg-secondary {
   background-color: #1d915b;
+}
+
+.filter-secondary {
+  -webkit-filter: #393d47;
+          filter: #393d47;
 }
 
 .success {
@@ -567,6 +597,11 @@ progress {
   background-color: #01ad5d;
 }
 
+.filter-success {
+  -webkit-filter: #393d47;
+          filter: #393d47;
+}
+
 .info {
   color: #0552d8;
 }
@@ -577,6 +612,11 @@ progress {
 
 .bg-info {
   background-color: #0552d8;
+}
+
+.filter-info {
+  -webkit-filter: #393d47;
+          filter: #393d47;
 }
 
 .warning {
@@ -591,6 +631,11 @@ progress {
   background-color: #d48a02;
 }
 
+.filter-warning {
+  -webkit-filter: #393d47;
+          filter: #393d47;
+}
+
 .danger {
   color: #ec0000;
 }
@@ -601,6 +646,11 @@ progress {
 
 .bg-danger {
   background-color: #ec0000;
+}
+
+.filter-danger {
+  -webkit-filter: #393d47;
+          filter: #393d47;
 }
 
 .grad {
