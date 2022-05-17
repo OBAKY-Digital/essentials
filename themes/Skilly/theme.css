@@ -2700,11 +2700,11 @@ span.grad {
 }
 
 .text-lowercase {
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .text-uppercase {
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 .text-capitalize {

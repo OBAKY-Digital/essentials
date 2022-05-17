@@ -28,10 +28,10 @@
     }
     // Alignments
     &-lowercase {
-        text-transform: uppercase;
+        text-transform: lowercase;
     }
     &-uppercase {
-        text-transform: lowercase;
+        text-transform: uppercase;
     }
     &-capitalize {
         text-transform: capitalize;
