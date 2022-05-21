@@ -53,7 +53,7 @@
   }
 }
 
-body {
+html, body {
   margin: 0;
   font-family: $_font-sans-serif;
   font-size: $_body-font-size;
@@ -64,7 +64,7 @@ body {
   background-color: $_light;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  @include scrollbars($spacer*.3, $_primary, transparent)
+  @include scrollbars($spacer*.3, $gradient, transparent)
 }
 
 hr {
@@ -222,8 +222,10 @@ sup {
 }
 
 a {
+  font: inherit;
   color: inherit;
   text-decoration: none;
+  transition: .7s ease-in-out;
   &.link {
     color: dodgerblue;
   }
